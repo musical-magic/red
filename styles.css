@@ -1,0 +1,483 @@
+@font-face {
+    font-family: 'NeoDunggeunmo';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family:'DNFBitBitv2';
+    font-style:normal;font-weight:400;src:url('//cdn.df.nexon.com/img/common/font/DNFBitBitv2.otf')format('opentype')
+}
+
+/* 기본 스타일 */
+body {
+    font-family: 'NeoDunggeunmo';
+    font-size: 12px;
+    padding: 11svh 5svh 0;
+    box-sizing: border-box;
+    text-align: center; /* 모든 텍스트를 가운데 정렬 */
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 1vh;
+    background-image: url('background.png'); /*배경 이미지 삽입 */
+    background-size: contain;  /* 이미지를 화면 크기에 맞게 조정 */
+    background-position: center; /* 이미지를 중앙에 위치 */
+    background-repeat: no-repeat; /* 이미지가 반복되지 않도록 설정 */
+    background-attachment: fixed; /* 배경이 스크롤에 고정되도록 설정 */
+    background-color: #ffe0e0;
+    hr{
+        width: 90%;
+    }
+}
+
+.big-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1svh 0 0 0;
+}
+
+.big-container:last-child{
+    align-self: flex-end;
+}
+
+.ok-btn{
+    width: 17svh;
+    height: 17svh;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    img{
+        width: 100%;
+    }
+    
+}
+
+.main-container{
+    width: 100%;
+    height: 50svh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 380px;
+    h3 {
+        margin: 2svh 0 0;
+        font-size: 13px;
+    }
+}
+
+
+
+/*시작화면 담는 박스*/
+.start-container{ 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 380px;
+    img { 
+        width: 80%;
+        margin: 3rem 0 2rem 0;
+    }
+}
+.start-container:last-child{
+    align-self: flex-end;
+}
+.guide-container{
+    color: white;
+    width: 80%;
+    height: 85%;
+    padding: 1svh;
+    text-align: center;
+    margin: 1vh auto;
+    background-color: #220a0a; /* 가이드배경색*/
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    max-width: 380px;
+    filter: drop-shadow(1px 2px 10px #ff6868);
+    h3 {
+        line-height: 150%;
+        font-size: 16px;
+    }
+
+    p{
+            margin: 3vh 0 9vh;
+        line-height: 150%;
+    }
+}
+
+.guide-container:last-child{
+    align-self: flex-end;
+
+}
+
+.symbol-container{ 
+    width: 100%;
+    height: 52svh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 380px;
+    img{
+        margin: 1vh 0 0vh 0;
+        width: 60%;
+    }
+    p{
+        margin: 1vh;
+    }
+}
+
+.musicForm-container{ 
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
+    max-width: 380px;
+    
+    h4 {
+        margin: 2svh 0 1svh 0;
+        font-size: 13px;
+    }
+}
+.form-container{
+    padding: 1vh;
+    max-width: 350px;
+    width: 80%;
+    height: 100%;
+    text-align: left;
+    margin: 0 auto;
+    gap: 1vh;
+    img{
+        text-align: center;
+        width: 50%;
+        margin: 0 auto;
+    }
+}
+
+.form-container:last-child{
+    justify-content: flex-end;
+}
+
+
+.circle-container{
+    width: 100%;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    max-width: 380px;
+    max-width: 350px;
+    margin: 0 auto;
+    gap: 1vh;
+    display: flex;
+    position: relative;
+}
+
+.circle-container:last-child{
+    align-self: flex-end;
+}
+
+.form-group {
+    display: none;
+    margin: 0 0 3vh 0;
+}
+
+.form-group.active {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.form-group label {
+    display: flex;
+    margin: 0vh 1vh 1vh 0;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 6px;
+    border: 2px solid #ff7070;
+    ;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin: 1svh auto 3svh;
+}
+
+.loading-container{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 380px;
+}
+
+.svg-container{
+    width: 100%;
+    height: 67%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 380px;
+}
+.text-box{
+    display: none;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 3svh 0 0vh 0;
+    gap: 1vh;
+}
+
+.btn-containerTwo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2svh 0 0 0;
+    gap: 1vh;
+}
+
+
+.btn1,.btn3, .btn5 {
+    box-shadow: 3px 3px 10px rgba(177, 177, 177, 0.5);
+    font-family: 'NeoDunggeunmo';
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    color: #FFFFFF;
+    background: linear-gradient(0deg, #ffe0e0 22%, #ff5353);
+    ; /* 버튼색 */
+    border: 2px solid #ff3737; /* 버튼 테두리 */
+}
+
+.btn2, .btn4, .btn6 {
+    box-shadow: 3px 3px 10px rgba(177, 177, 177, 0.5);
+    font-family: 'NeoDunggeunmo';
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    color: #ff7070; /* 텍스트 색 */
+    background: linear-gradient(0deg, #FFFFFF 22%, #ff8d8d); /* 버튼색 */
+    border: 2px solid #ff3737; /* 버튼 테두리 */
+}
+
+
+
+.btn1, .btn2 {
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 22vh;
+    height: 5vh;
+    border-radius: 30px;
+    
+}
+
+.btn1 {
+    font-size: 22px;
+}
+
+
+.btn2 {
+    font-size: 20px;
+}
+
+
+.btn3, .btn4{
+    display: inline-block;
+    margin-bottom: 20px;
+    width: 13vh;
+    height: 4vh;
+    border-radius: 20px;
+}
+
+.btn5, .btn6{
+    display: inline-block;
+    width: 25vh;
+    height: 5vh;
+    border-radius: 30px;
+   
+}
+
+
+.btn1 .btn2 .btn3 .btn4 .btn5 .btn6 :before {
+    height: 0%;
+    width: 2px;
+}
+.btn1 .btn2 .btn3 .btn4 .btn5 .btn6 :active {
+    box-shadow:  3px 3px 10px rgba(177, 177, 177, 0.5),
+                -3px -3px 10px 0 rgba(116, 125, 136, .5), 
+      inset -3px -3px 5px 0 rgba(255,255,255,.2),
+      inset 3px 3px 5px 0 rgba(0, 0, 0, .4);
+}
+
+.trs-btn{
+    width: 17svh;
+    height: 17svh;
+    background-color: transparent;
+    border: 0;
+    position: absolute;
+    top: 70svh;
+    left: 24svh;
+}
+.loading-box {
+    width: 24vh;
+    height: 24vh;
+    margin: 7vh auto 7vh;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.front, .back {
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    max-width: 380px;
+    margin: 0 auto;
+    gap: 1vh;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 1vh 0;
+}
+
+.card-front, .card-back {
+    width: 25svh;
+    height: 25svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 5px;
+    filter: drop-shadow(1px 2px 10px #ff7070);
+}
+
+.card-front {
+    background-color:#0A354C; /*어두운 배경색*/
+    filter: drop-shadow(1px 2px 10px #ff7070);
+    circle{
+        fill: none;
+        stroke: #ffffff;
+        filter: drop-shadow(1px 2px 10px #ff7070); /*마법진 색*/
+    }
+    svg{
+        width: 100%;
+    }
+
+}
+
+.card-back {
+    background-color: #e5f0ff; /*밝은 배경색*/
+    line-height: 100%;
+    font-size: 10px;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 1vh 2vh 1vh;
+    color: black;
+    h2 {
+        font-size: 10px;
+    }
+    p {
+        line-height: 120%;
+        text-overflow: ellipsis;
+        display: block;
+        margin: 0.7svh 0;
+        font-size: 9px;
+    }
+}
+
+
+
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#rotatingText {
+    animation: rotate 15s linear infinite;
+    transform-origin: center center;
+}
+
+/* 아이폰 미니*/
+@media screen and (max-height: 375px){
+    body{
+        padding: 11svh 10svh 4svh;
+        font-size: 10px;
+    }
+
+    .main-container {
+        width: 100%;
+        height: 56svh;
+        h3 {
+            font-size: 11px;
+        }
+    }
+
+    .start-container {
+        img {
+            margin: 2rem 0 3rem 0;
+        }
+    }
+
+    .guide-container {
+        width: 80%;
+        height: 36vh;
+        h3{
+            line-height: 130%;
+            font-size: 15px;
+        }
+        p {
+            margin: 3vh 0 6vh;
+            line-height: 150%;
+        }
+    }
+    
+    .musicForm-container{ 
+        h4 {
+            margin: 2svh 0 1svh 0;
+            font-size: 12px;
+        }
+    }
+
+    .btn-container {
+        margin: 1svh 0 0 0;
+    }
+
+
+    .btn1, .btn2 {
+        font-size: 16px;
+    }
+
+    .btn3, .btn4 {
+        width: 12vh;
+        height: 3.5vh;
+        font-size: 12px;
+    }
+    .btn-containerTwo{
+        margin: 1vh 0 2vh 0;
+    }
+}

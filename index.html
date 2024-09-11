@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Musical Magic</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="big-container">
+        <div class="main-container" id="first">
+            <div class="start-container" id="start">
+                <img src="typo.png">
+                <button class="btn1" onclick="showSymbol()">start</button>
+                <button class="btn2" onclick="showGuide()">how to</button>
+            </div>
+
+            <div class="guide-container" id="guide" style="display: none;">
+                <h3>How to play <br>
+                    Musical Magic</h3>
+                <p style="color:#ffffff">
+                    선택한 마법 심볼의 키워드를 보고<br>
+                    떠오르는 ‘음악’ 등록하기!<br>
+                    
+                    총 6개의 음악을 등록하고<br>
+                    하단의 버튼을 누르면<br>
+                    나만의 ‘Musical Magic 스크롤’이 <br>
+                    완성됩니다.</p>
+                <button class="btn3" onclick="hideGuide()">닫기</button>
+            </div>
+
+            <div class="symbol-container" id="symbol" style="display: none;">
+                <h3>Musical Magic</h3>
+                <hr style= "width: 90%; border-width:1px 0 0 0; border-color:#000;">
+                <img src="symbol.gif" style="margin: 2vh 0 1vh 0;"> <!--심볼 gif-->
+                <p style="font-size: 20px; margin: 0;" >Passion</p>
+                <p>#열정  #노동요가 필요할 때</p>
+                <div class="btn-container">
+                    <button class="btn3" onclick="showForm()">선택</button>
+                    <button class="btn4" onclick="hideSymbol()">뒤로가기</button>
+                </div>
+            </div>
+
+            <div class="musicForm-container" id="musicform" style="display: none;">
+                <h3>Musical Magic</h3>
+                <hr style= "border-width:1px 0 0 0; border-color:#000;">
+                <h4>음악을 등록해주세요</h4>
+                <form class="form-container" id="musicForm">
+                    <div class="form-group active" id="form1">
+                        <label for="artist1">가수 1:</label>
+                        <input type="text" id="artist1" name="artist1" required>
+                        <label for="songTitle1">노래 제목 1:</label>
+                        <input type="text" id="songTitle1" name="songTitle1" required>
+                        <div class="btn-container">
+                            <button class="btn3" type="submit" onclick="showNextForm(1); return false;">등록</button>
+                            <button class="btn4" onclick="hideForm()">뒤로가기</button>
+                        </div>
+                        <img src="star-01.png">
+                    </div>
+                    <div class="form-group" id="form2">
+                        <label for="artist2">가수 2:</label>
+                        <input type="text" id="artist2" name="artist2" required>
+                        <label for="songTitle2">노래 제목 2:</label>
+                        <input type="text" id="songTitle2" name="songTitle2" required>
+                        <div class="btn-container">
+                            <button class="btn3" type="submit" onclick="showNextForm(2); return false;">등록</button>
+                            <button class="btn4" onclick="showPreForm(2)">뒤로가기</button>
+                        </div>
+                        <img src="star-02.png">
+                    </div>
+                    <div class="form-group" id="form3">
+                        <label for="artist3">가수 3:</label>
+                        <input type="text" id="artist3" name="artist3" required>
+                        <label for="songTitle3">노래 제목 3:</label>
+                        <input type="text" id="songTitle3" name="songTitle3" required>
+                        <div class="btn-container">
+                            <button class="btn3" type="submit" onclick="showNextForm(3); return false;">등록</button>
+                            <button class="btn4" onclick="showPreForm(3)">뒤로가기</button>
+                        </div>
+                        <img src="star-03.png">
+                    </div>
+                    <div class="form-group" id="form4">
+                        <label for="artist4">가수 4:</label>
+                        <input type="text" id="artist4" name="artist4" required>
+                        <label for="songTitle4">노래 제목 4:</label>
+                        <input type="text" id="songTitle4" name="songTitle4" required>
+                        <div class="btn-container">
+                            <button class="btn3" type="submit" onclick="showNextForm(4); return false;">등록</button>
+                            <button class="btn4" onclick="showPreForm(4)">뒤로가기</button>
+                        </div>
+                        <img src="star-04.png">
+                    </div>
+                    <div class="form-group" id="form5">
+                        <label for="artist5">가수 5:</label>
+                        <input type="text" id="artist5" name="artist5" required>
+                        <label for="songTitle5">노래 제목 5:</label>
+                        <input type="text" id="songTitle5" name="songTitle5" required>
+                        <div class="btn-container">
+                            <button class="btn3" type="submit" onclick="showNextForm(5); return false;">등록</button>
+                            <button class="btn4" onclick="showPreForm(5)">뒤로가기</button>
+                        </div>
+                        <img src="star-05.png">
+                    </div>
+                    <div class="form-group" id="form6">
+                        <label for="artist6">가수 6:</label>
+                        <input type="text" id="artist6" name="artist6" required>
+                        <label for="songTitle6">노래 제목 6:</label>
+                        <input type="text" id="songTitle6" name="songTitle6" required>
+                        <div class="btn-container">
+                            <button class="btn3" id="make" onclick="showLoading(); return false;">등록</button>
+                            <button class="btn4" onclick="showPreForm(6)">뒤로가기</button>
+                        </div>
+                        <img src="star-06.png">
+                    </div>
+                </form> 
+            </div>
+        </div>
+    
+        <div class="main-container" id="second" style="display: none;">
+            <div class="loading-container" id="loading">
+                <h3>Musical Magic</h3>
+                <hr style="border-width:1px 0 0 0; border-color:#000;">
+                <div class="loading-box">
+                    <img src="loading.gif" style="width: 22vh;"><!--로딩 gif-->
+                </div>
+                <div class="text-box" id="btntext">▼ 버튼을 눌러주세요 ▼</div>
+                <button class="trs-btn" onclick="generateCircle()"></button>
+            </div>
+    
+            <div class="circle-container" id="circleContainer" style="display: none;">
+                <h3>Musical Magic</h3>
+                <hr style="border-width:1px 0 0 0; border-color:#000;">
+                <div class="front" id="magic">
+                    <div class="card-front" id="magicCircle">
+                        <svg id="magiCircle" viewBox="0 0 300 300">
+                            <circle cx="150" cy="150" r="135" stroke-width="5" />
+                            <circle cx="150" cy="150" r="125"  stroke-width="2.5" />
+                            <circle cx="150" cy="150" r="105"  stroke-width="2.5" />
+                            <circle cx="150" cy="150" r="95"  stroke-width="5"  />
+                            <defs>
+                                <path id="circlePath" d="M 150,150 m -110,0 a 110,110 0 1,1 220,0 a 110,110 0 1,1 -220,0"></path>
+                            </defs>
+
+                            <image href="magic.png" x="55" y="55" width="190" height="190" /><!--마법진 심볼 이미지-->
+
+                            <g id="rotatingText">
+                                <text style="fill: #ffffff; filter: drop-shadow(1px 2px 10px #ff6868); font-size: 12px; color:#ffffff;"><!--마법진 색-->
+                                    <textPath href="#circlePath">
+                                        <tspan id="circleText" startOffset="0%"></tspan>
+                                    </textPath>
+                                </text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="btn-containerTwo">
+                        <button class="btn5" onClick="showList()">플레이리스트 보기</button>
+                        <button class="btn6" onClick="window.location.reload()">다시하기</button>
+                    </div>
+                </div>
+
+                <div class="back" id="list" style="display: none;">
+                    <div class="card-back" id="musicList"></div>
+                    <div class="btn-containerTwo">
+                        <button class="btn5" onClick="showMagic()">마법진 보기</button>
+                        <button class="btn6" onClick="window.location.reload()">다시하기</button>
+                    </div>
+                </div>
+            </div>           
+        </div>
+        <div class="ok-btn">
+            <img src="ok.png"><!--버튼이미지-->
+        </div>
+    </div>
+
+    <script>
+        function showSymbol() {
+            document.querySelector('#symbol').style.display = "flex"
+            document.querySelector('#start').style.display = "none"; 
+        }
+
+        function hideSymbol() {
+            document.querySelector('#symbol').style.display = "none"; //상세 설명 부분을 화면에서 감춤
+            document.querySelector('#start').style.display = "flex"; //'상세 설명 보기' 단추를 화면에 표시 
+        }
+
+        function showGuide() {
+            document.querySelector('#guide').style.display = "flex"; //상세 설명 부분을 화면에 표시.
+            document.querySelector('#start').style.display = "none"; //'상세 설명 보기' 단추를 화면에서 감춤. 
+        }
+    
+        function hideGuide() {
+            document.querySelector('#guide').style.display = "none"; //상세 설명 부분을 화면에서 감춤
+            document.querySelector('#start').style.display = "flex"; //'상세 설명 보기' 단추를 화면에 표시 
+        }
+
+        function showForm() {
+            document.querySelector('#musicform').style.display ="flex"
+            document.querySelector('#symbol').style.display = "none"; 
+        }
+
+        function hideForm() {
+            document.querySelector('#musicform').style.display = "none"; //상세 설명 부분을 화면에서 감춤
+            document.querySelector('#symbol').style.display = "flex"; //'상세 설명 보기' 단추를 화면에 표시 
+        }
+
+        function showLoading() {
+            document.querySelector('#second').style.display ="flex"
+            document.querySelector('#first').style.display = "none"; 
+
+            setTimeout(() => {
+                $('#btntext').fadeIn(1000); // 1초 동안 서서히 나타나기
+            }, 1000);
+
+        }
+        
+        function showList() {
+            document.querySelector('#list').style.display ="flex"
+            document.querySelector('#magic').style.display = "none"; 
+        }
+
+        function showMagic() {
+            document.querySelector('#magic').style.display ="flex"
+            document.querySelector('#list').style.display = "none"; 
+        }
+
+        function showNextForm(currentFormNumber) {
+            const activeForm = document.querySelector(`#form${currentFormNumber}`);
+            const artist = activeForm.querySelector('input[name^="artist"]').value;
+            const songTitle = activeForm.querySelector('input[name^="songTitle"]').value;
+
+            if (artist.trim() === '' || songTitle.trim() === '') {
+                alert('빈칸을 모두 채워주세요!');
+                return; // Do not proceed to the next form
+            }
+
+            const nextForm = document.getElementById(`form${currentFormNumber + 1}`);
+            if (nextForm) {
+                activeForm.classList.remove('active');
+                nextForm.classList.add('active');
+            }
+        }
+
+
+        function showPreForm(currentFormNumber) {
+            const currentForm = document.getElementById(`form${currentFormNumber}`);
+            const nextForm = document.getElementById(`form${currentFormNumber - 1}`);
+            const artist_Value =   document.getElementById(`artist${currentFormNumber - 1}`);
+            const songTitle_Value =   document.getElementById(`songTitle${currentFormNumber - 1}`);
+
+            if (nextForm) {
+                currentForm.classList.remove('active');
+                nextForm.classList.add('active');
+
+               
+            }
+            artist_Value.value="";
+            songTitle_Value.value="";
+
+        }
+
+            
+        function generateCircle() {
+            const data = [];
+            for (let i = 1; i <= 6; i++) {
+                const artist = document.getElementById(`artist${i}`).value;
+                const songTitle = document.getElementById(`songTitle${i}`).value;
+                data.push(artist);
+                data.push(songTitle);
+            }
+
+            const characters = data.join('').replace(/[\s-]/g, '').split(''); // 모든 텍스트에서 개별 글자를 추출
+            const numCharacters = 45; // 원형 경로에 배치할 최소 글자 수
+            let selectedCharacters = [];
+
+            while (selectedCharacters.length < numCharacters) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                selectedCharacters.push(characters[randomIndex]);
+
+                if (selectedCharacters.length >= characters.length) {
+                    selectedCharacters = selectedCharacters.slice(0, numCharacters); // 과잉된 문자 제거
+                }
+            }
+        
+            // 원형 경로에 텍스트를 배치
+            const circleText = document.getElementById('circleText');
+            const spacing = 8; // 각 글자 사이의 간격
+
+            const formattedText = selectedCharacters.map((character, index) => {
+                return `<tspan dx="${index === 0 ? 0 : spacing}">${character}</tspan>`;
+            }).join('');
+
+            circleText.innerHTML = formattedText;
+
+            // 음악 목록 생성
+            const musicList = document.getElementById('musicList');
+            musicList.innerHTML = '<h2>등록된 음악 목록</h2>';
+            for (let i = 1; i <= 6; i++) {
+                const artist = document.getElementById(`artist${i}`).value;
+                const songTitle = document.getElementById(`songTitle${i}`).value;
+                if (artist && songTitle) {
+                    musicList.innerHTML += `<p>${i}. ${artist} - ${songTitle}</p>`;
+                }
+            }
+
+           // document.querySelector('musicform').style.display = 'none';
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('circleContainer').style.display = 'flex';
+
+            //circleText.classList.add(`circleContainer`);
+        }
+    </script>
+</body>
+</html>
